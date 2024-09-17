@@ -1,5 +1,6 @@
 import pandas as pd
 from decision_tree import DecisionTree
+from avaliacao_de_modelos import *
 def main()->None:
     df : pd.DataFrame = pd.read_csv("titanic.csv")
     tree : DecisionTree = DecisionTree(max_depth=5)
@@ -18,6 +19,11 @@ def main()->None:
     tree.fit(X,y)
     predictions = tree.predict(X)
     print(predictions)
+    conf_matrix_df : pd.DataFrame = confusion_matrix(y,predictions)
+    accuracy_value : float = accuracy(conf_matrix=conf_matrix_df)
+    recall_dict : dict = recall(conf_matrix=conf_matrix_df)
+    precision_dict :dict = precision(conf_matrix=conf_matrix_df)
+    f1_score_dict : dict = f1_score(conf_matrix=conf_matrix_df)
     """
     aplicação dos algoritmos criados pelo ChatGPT em um conjunto de
     dados e avaliação de seus resultados com matriz de confusão, acurácia, recall, precisão e f1-score. Sugestões de datasets para teste: Iris,
