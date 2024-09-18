@@ -1,6 +1,6 @@
 import pandas as pd
-from decision_tree import DecisionTree
-from avaliacao_de_modelos import *
+from decision_tree_scripts.decision_tree import DecisionTree
+from decision_tree_scripts.avaliacao_de_modelos import *
 def imprime_dict(dict_instance:dict, metrica:str)->None:
     print(f"métrica: {metrica}")
     for key,value in dict_instance.items():
